@@ -2,10 +2,9 @@ import React from 'react';
 import CartItem from '../../components/CartItem';
 import { calculateTotal, getCurrencySymbol } from '../../helpers/helpers';
 
-
 const Cart = ({ cart, currencyFilter, dispatch }) => {
 
-    const cartElements = Object.keys(cart).map((item) => <CartItem name={item} cart={cart} />)
+    const cartElements = Object.keys(cart).map((item) => <CartItem name={item} cart={cart} dispatch={dispatch} />)
     const total = calculateTotal(cart, currencyFilter);
 
     return (

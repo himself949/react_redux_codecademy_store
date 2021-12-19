@@ -1,8 +1,17 @@
 import React from 'react';
+import { changeItemQuantity } from '../features/cart/cartSlice';
 
-const CartItem = ({ name, cart }) => {
+const CartItem = ({ name, cart, dispatch }) => {
 
     const item = cart[name];
+
+    const onInputChangeHandler = (name, input) => {
+        if (input === '') {
+            return;
+        }
+        const newQuantity = Number(input);
+        dispatch(changeItemQuantity(name, newQuantity))
+    }
 
     if (item.quantity === 0) {
         return;
@@ -10,15 +19,6 @@ const CartItem = ({ name, cart }) => {
 
     return (
         <li key={name}>
-            <p>test</p>
-
-        </li>
-    );
-};
-
-export default CartItem;
-
-/*
             <p>{name}</p>
             <select
                 className="item-quantity"
@@ -33,5 +33,8 @@ export default CartItem;
                     </option>
                 ))}
             </select>
+        </li>
+    );
+};
 
-*/
+export default CartItem;

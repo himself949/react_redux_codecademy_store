@@ -1,17 +1,23 @@
 import React from 'react';
+import { calculatePrice, getCurrencySymbol } from '../helpers/helpers';
 
-const InventoryItem = ({ item }) => {
+const InventoryItem = ({ item, currencyFilter }) => {
 
-    const { price, name, img } = item;
-    //const displayPrice = calculatePrice(price, currencyFilter);
+  const { price, name, img } = item;
+  const displayPrice = calculatePrice(price, currencyFilter);
 
-    return (
-        <li key={name} className="item">
-            <img src={img} alt={''} />
-            <h3>{name}</h3>
+  return (
+    <li key={name} className="item">
+      <img src={img} alt={''} />
+      <h3>{name}</h3>
+      <h3 className="price">
+        {getCurrencySymbol(currencyFilter)}
+        {displayPrice.toFixed(2)} {currencyFilter}
+      </h3>
 
-        </li>
-    );
+
+    </li>
+  );
 };
 
 export default InventoryItem;
@@ -27,4 +33,13 @@ export default InventoryItem;
             >
               Add to Cart
             </button>
+
+
+
+            <button
+        onClick={() => onClickHandler(inventoryItem)}
+        className="add-to-cart-button"
+      >
+        Add to Cart
+      </button>
 */

@@ -22,6 +22,7 @@ function App({ state, dispatch }) {
       <Inventory
         inventory={visibleItems}
         dispatch={dispatch}
+        currencyFilter={state.currencyFilter}
       />
     </div>
   );
@@ -31,6 +32,6 @@ export default App;
 
 /*
 
-        currencyFilter={state.currencyFilter}
+        
         
 */

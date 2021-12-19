@@ -7,7 +7,11 @@ const CurrencyFilter = ({ currencyFilter, dispatch }) => {
     return (
         <div id="currency-filters-container">
             <h3>Choose a currency</h3>
-            {currenciesData.map((item) => <CurrencyButton currencyFilter={currencyFilter} currency={item} dispatch={dispatch} />)}
+            {currenciesData.map((item) => <CurrencyButton
+                currencyFilter={currencyFilter}
+                currency={item}
+                dispatch={dispatch}
+            />)}
         </div>
     );
 };

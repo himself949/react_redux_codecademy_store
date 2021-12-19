@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import InventoryItem from '../../components/InventoryItem';
 import { loadData } from './inventorySlice';
 
-const Inventory = ({ inventory, dispatch }) => {
+const Inventory = ({ inventory, dispatch, currencyFilter }) => {
 
   const onMount = () => {
     dispatch(loadData())
@@ -15,7 +15,7 @@ const Inventory = ({ inventory, dispatch }) => {
 
   return (
     <ul id="inventory-container">
-      {inventory.map((item) => (<InventoryItem item={item} />))}
+      {inventory.map((item) => (<InventoryItem item={item} currencyFilter={currencyFilter} />))}
     </ul>
   );
 };

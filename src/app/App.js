@@ -1,14 +1,18 @@
+import CurrencyFilter from "../features/currencyFilter/CurrencyFilter";
 import Inventory from "../features/inventory/Inventory";
 import SearchTerm from "../features/searchTerm/SearchTerm";
 import { getFilteredItems } from '../helpers/helpers'
 
 function App({ state, dispatch }) {
 
-
   const visibleItems = getFilteredItems(state.inventory, state.searchTerm);
 
   return (
     <div>
+      <CurrencyFilter
+        currencyFilter={state.currencyFilter}
+        dispatch={dispatch}
+      />
 
       <SearchTerm
         searchTerm={state.searchTerm}
@@ -19,7 +23,6 @@ function App({ state, dispatch }) {
         inventory={visibleItems}
         dispatch={dispatch}
       />
-
     </div>
   );
 }

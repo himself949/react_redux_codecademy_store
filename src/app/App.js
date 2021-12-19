@@ -1,3 +1,4 @@
+import Cart from "../features/cart/Cart";
 import CurrencyFilter from "../features/currencyFilter/CurrencyFilter";
 import Inventory from "../features/inventory/Inventory";
 import SearchTerm from "../features/searchTerm/SearchTerm";
@@ -24,14 +25,14 @@ function App({ state, dispatch }) {
         dispatch={dispatch}
         currencyFilter={state.currencyFilter}
       />
+
+      <Cart
+        cart={state.cart}
+        currencyFilter={state.currencyFilter}
+        dispatch={dispatch}
+      />
     </div>
   );
 }
 
 export default App;
-
-/*
-
-        
-        
-*/

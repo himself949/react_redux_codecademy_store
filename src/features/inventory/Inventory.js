@@ -15,7 +15,11 @@ const Inventory = ({ inventory, dispatch, currencyFilter }) => {
 
   return (
     <ul id="inventory-container">
-      {inventory.map((item) => (<InventoryItem item={item} currencyFilter={currencyFilter} />))}
+      {inventory.map((item) => (<InventoryItem
+        item={item}
+        currencyFilter={currencyFilter}
+        dispatch={dispatch}
+      />))}
     </ul>
   );
 };
